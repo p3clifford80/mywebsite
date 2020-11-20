@@ -1,0 +1,35 @@
+<html>
+<head>
+<script language="javaScript">
+function beginAnim()
+{	
+	var myDude = document.getElementById("dude");
+	var xPos = myDude.style.left;
+	xPos = parseInt(xPos);
+	xPos -= 5;
+	myDude.style.left = xPos;
+	if( xPos > 0)
+		var timer = setTimeout("beginAnim()", 20);
+	else 
+	{
+		myDude.style.left = 900;
+	}
+}
+
+</script>
+</head>
+<body>
+<center>
+<h1>My Animation</h1>
+<input type = "button" value = "Start" onClick="beginAnim()"/>
+</center>
+<div id="setting" style="position:absolute; top:125; left:100">
+<img src="images/animBkgnd.jpg" width="800"/>
+</div>
+<div id="dude" style="position:absolute; top:475; left:900">
+<img src="images/walking.gif" width = "150"/>
+</div>
+
+
+</body>
+</html>
