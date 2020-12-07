@@ -1,0 +1,77 @@
+
+<html>
+<head> 
+<script language="JavaScript">
+
+
+
+var partsOfSpeech = ["Please enter a girl's name.", "Please enter a type of car.", "Please enter an adjective", "Please enter a verb", "Please enter an occupation.", "Please enter a number."];
+var answers = new Array(partsOfSpeech.length);
+var story = ["A Carmel High student named ", " wanted to be a race car driver. She always drove her ", " as ", "  as possible. Unfortunately, her car didn’t ", " go very at all. But she was the only ", " entered in the Indianapolis ", " in a mini cooper." ];
+var count = 0;
+
+function prompt()
+{
+	if (count == 0)
+	{
+		var txtBox = document.getElementById("userEnter");
+		txtBox.style.visibility = "visible";
+		document.getElementById("story").style.visibility = "hidden";
+	}
+	document.getElementById("response").value = partsOfSpeech[count];
+}
+
+
+function getWords()
+{
+	var wordBox = document.getElementById("response");
+	answers[count] = wordBox.value;
+	
+	count++;
+	
+	if (count < partsOfSpeech.length) //User needs to enter more partsOfSpeech.  
+	{
+		wordBox.value = partsOfSpeech[count];
+	}
+	else
+	{
+		count = 0;
+		document.getElementById("daButton").value = "Start";
+		document.getElementById("story").innerHTML = displayStory();
+	}
+}
+
+function displayStory()
+{
+	var answer = "";
+	var i;
+	for ( i = 0; i< answers.length; i++)
+	{
+		answer += story[i];
+		answer += answers[i];
+	}
+	if( i < story.length )
+		answer += story[i];
+		
+	document.getElementById("story").style.visibility = "visible";
+	document.getElementById("userEnter").style.visibility = "hidden";
+	return answer;
+}
+
+</script>
+</head>
+<body>
+<center> 
+<h1>My MadLib!</h1>
+<input id="daButton" type="button" value="start" onClick="prompt()"/>
+</center>
+<div id="userEnter" style="position:absolute; left:200; top: 100; visibility:hidden;">
+<input type = "text" id="response" value="" onfocusout="getWords()"/></p>
+</div>
+
+<div id="story" style="position:absolute; overflow:scroll; top:300; left:200; width:400; height: 200; visibility:hidden">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+<div>
+
+</body>
+</html>
