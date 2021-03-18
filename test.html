@@ -1,0 +1,28 @@
+<html>
+<head>
+<script language="javaScript">
+
+var counter = 0;
+var vids = [ "https://www.youtube.com/embed/pbeXT2rPoxI","https://www.youtube.com/embed/DoLYqFB6kVY"]
+function changeVids()
+{
+		counter ++;
+		if( counter == vids.length )
+			counter = 0;
+		document.getElementById("myVid").src=vids[counter];
+		var x = document.getElementById("myVid").src;
+
+}
+
+</script>
+<body>
+<center>
+<h1>YouTube Vids</h1>
+<input type="button" value = "click" onclick="changeVids()"/>
+<br/><br/>
+<iframe id="myVid" width="560" height="315" src="https://www.youtube.com/embed/pbeXT2rPoxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+</center>
+<body>
+</html>
