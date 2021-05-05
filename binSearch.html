@@ -1,0 +1,59 @@
+<html>
+<head>
+<script language="javaScript">
+
+var myList;// = new Array(10);
+function begin()
+{
+ 	var j = prompt("How big a list should I make?");
+	j = parseInt(j);
+	var myList = new Array(j);
+	for(var i = 0; i< myList.length; i++)
+	{
+		myList[i] = Math.floor(Math.random()*100);
+	}
+	sorting(myList);
+}
+
+function sorting(daList)
+{
+	for(var i = 0; i< daList.length-1; i++)
+	{
+		for(var j = i+1; j<daList.length; j++)
+		{
+			if( daList[i]>daList[j])
+			{
+				var temp = daList[i];
+				daList[i] = daList[j];
+				daList[j]= temp;
+			}
+		}
+	}
+	displayList(daList);
+}
+
+function displayList(dahList)
+{
+	var answer = "";
+	for(var i = 0; i<dahList.length; i++)
+	{
+		answer += dahList[i];
+		answer+= ", ";
+	}
+	answer += dahList[dahList.length-1];
+	document.getElementById("listOnums").value = answer;
+
+}
+size
+</script>
+</head>
+<body onload = "begin()">
+<h1> Binary Search! </h1>
+
+<center>
+<input type = "button" value = "Start Search!" onclick="binSearch()"/>
+<input id="listOnums" type="text" id="listOnums" size = 40/>
+</center>
+
+</body>
+</html>
